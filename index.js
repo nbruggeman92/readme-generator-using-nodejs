@@ -41,7 +41,7 @@ const questions = [
         type: "list",
         name: "projectLicense",
         message: "Please choose your preferred license for this project",
-        choices: ["Mozilla Public License 2.0", "MIT License", "BSD 3-Clause License", "Apache License 2.0", "GNU General Public License (GPL) v3"],
+        choices: ["MIT","Mozilla Public License 2.0", "BSD 3-Clause License", "Apache License 2.0", "GNU General Public License (GPL) v3"],
     },
     {
         type: "input",
@@ -63,8 +63,8 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((inquirerResponses) => {
-        console.log("Getting results! Please hold!");
-        writeToFile("README.md", generateMarkdown({inquirerResponses}))
+        console.log("Getting results! Please hold!...");
+        writeToFile("README.md", generateMarkdown({...inquirerResponses}))
     })
 }
 
